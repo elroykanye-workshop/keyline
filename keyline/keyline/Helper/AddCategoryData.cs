@@ -17,6 +17,7 @@ namespace keyline.Helper
 
         public AddCategoryData()
         {
+            firebaseClient = new FirebaseClient(databaseEnpoint);
             Categories = new List<Category>()
              {
                  new Category()

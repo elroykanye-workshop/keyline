@@ -11,6 +11,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\Font Awesome 5 Brands-Regular-400.otf" />
+    <None Remove="Resources\Fonts\Font Awesome 5 Free-Regular-400.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\Font Awesome 5 Brands-Regular-400.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.6" />
 	  <!--
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
@@ -24,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Fonts\" />
+    <Resource Include="Resources\Fonts\Font Awesome 5 Free-Regular-400.otf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +41,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\ProductsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\SettingsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

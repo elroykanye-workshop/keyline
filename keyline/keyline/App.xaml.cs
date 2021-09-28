@@ -12,7 +12,8 @@ namespace keyline
             InitializeComponent();
 
             //MainPage = new MainPage();
-            MainPage = new LoginView();
+            //MainPage = new LoginView();
+            MainPage = new NavigationPage(new SettingsView());
         }
 
         protected override void OnStart()

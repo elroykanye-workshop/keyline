@@ -155,7 +155,7 @@ namespace keyline.ViewModel
             }
             finally
             {
-
+                IsBusy = false;
             }
         }
 
