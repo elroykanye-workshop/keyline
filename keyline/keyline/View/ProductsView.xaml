@@ -5,8 +5,12 @@
              xmlns:vm="clr-namespace:keyline.ViewModel"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:fa="clr-namespace:FontAwesome"
              ios:Page.UseSafeArea="True"
              x:Class="keyline.View.ProductsView">
+    <ContentPage.BindingContext>
+        <vm:ProductViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid Margin="20,0,0,0">
             <Grid.RowDefinitions>
@@ -39,7 +43,7 @@
                        Grid.Row="0" Grid.Column="0"
                        TextColor="Silver"/>
                 <!-- logged in user's name -->
-                <Label Text="{Bindind Username}" 
+                <Label Text="{Binding Username}" 
                        Grid.Row="1" Grid.Column="0"
                        FontSize="20" FontAttributes="Bold"/>
                 
@@ -51,7 +55,8 @@
                         <FontImageSource FontFamily="FontAwesome5Regular"
                                          Color="Purple"
                                          Size="40"
-                                         Glyph="{x:Static helper:IconFont.ViewLst}"/>
+                                         Glyph="{x:Static fa:FontAwesomeIcons.List}"/>
+                        
                     </ImageButton.Source>
                 </ImageButton>
                 
@@ -67,7 +72,7 @@
                     <ImageButton.Source>
                         <FontImageSource FontFamily="FontAwesome5Regular"
                                          Color="Green"
-                                         Glyph="{x:Static helper:IconFont.Shopping}"
+                                         Glyph="{x:Static fa:FontAwesomeIcons.ShoppingBag}"
                                          Size="40"/>
                     </ImageButton.Source>
                 </ImageButton>
@@ -78,7 +83,7 @@
                     <ImageButton.Source>
                         <FontImageSource FontFamily="FontAwesome5Regular"
                                          Color="Red"
-                                         Glyph="{x:Static helper:IconFont.Shopping}"
+                                         Glyph="{x:Static fa:FontAwesomeIcons.SignOut}"
                                          Size="40"/>
                     </ImageButton.Source>
                 </ImageButton>
@@ -100,7 +105,7 @@
                     <ImageButton.Source>
                         <FontImageSource FontFamily="FontAwesome5Regular"
                                          Color="Black"
-                                         Glyph="{x:Static helper:IconFont.SearchWeb}"
+                                         Glyph="{x:Static fa:FontAwesomeIcons.Search}"
                                          Size="40"/>
                     </ImageButton.Source>
                 </ImageButton>
