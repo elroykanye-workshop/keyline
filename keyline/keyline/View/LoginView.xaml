@@ -11,10 +11,10 @@
 
             <!-- login title -->
             <StackLayout Grid.Row="0" VerticalOptions="Center">
-                <Image Source="" WidthRequest="100" HeightRequest="300" />
+                <Image Source="" WidthRequest="128" HeightRequest="256" />
 
                 <Label Text="Login" FontFamily=""
-                       TextColor="Purple" FontSize="36"
+                       TextColor="#D40778" FontSize="36"
                        HorizontalOptions="Center"/>
               
             </StackLayout>
@@ -28,12 +28,12 @@
                 <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" />
                 
                 <!-- login button -->
-                <Button Text="Login" HorizontalOptions="Center" BackgroundColor="Purple"
-                        TextColor="White" WidthRequest="200" HeightRequest="60" CornerRadius="20"/>
+                <Button Text="Login" HorizontalOptions="Fill" BackgroundColor="#D40778"
+                        TextColor="White" CornerRadius="0"/>
 
                 <Label Text="No account? Register below."/>
-                <Button Text="Register" HorizontalOptions="Center" BackgroundColor="DarkOrange"
-                        TextColor="White" WidthRequest="200" HeightRequest="60" CornerRadius="20"/>
+                <Button Text="Register" HorizontalOptions="Fill" BackgroundColor="#709404"
+                        TextColor="White" CornerRadius="0"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
