@@ -1,18 +1,16 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
+using keyline.Helper;
 using keyline.Model;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace keyline.Service
 {
     class UserService
     {
-        FirebaseClient firebaseClient;
-        private string databaseEndpoint = "https://keyline-17e32-default-rtb.firebaseio.com/"
+        private readonly FirebaseClient firebaseClient;
+        private readonly string databaseEndpoint = Constants.firebaseEndpoint;
 
         public UserService()
         {
@@ -21,7 +19,7 @@ namespace keyline.Service
 
         public async Task<bool> IsUserExists(string username)
         {
-            var user = (await firebaseClient.Child("Users")
+            FirebaseObject<User> user = (await firebaseClient.Child("Users")
                 .OnceAsync<User>()).Where(u => u.Object.Username.Equals(username))
                 .FirstOrDefault();
 

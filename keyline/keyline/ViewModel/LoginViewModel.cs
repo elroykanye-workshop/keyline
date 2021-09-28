@@ -83,18 +83,28 @@ namespace keyline.ViewModel
             if (IsBusy) { return; }
             try
             {
-                IsBusy = true;
-                var userService = new UserService();
-
-                Result = await userService.RegisterUser(Username, Password);
-
-                if(Result)
+                
+                bool fieldEmpty = IsFieldEmpty(Username, Password);
+                if (fieldEmpty)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Success", "Account registered", "Okay");
+                    await Application.Current.MainPage.DisplayAlert("Error", "Username or password cannot be empty", "Try again");
                 }
                 else
                 {
-                    await Application.Current.MainPage.DisplayAlert("Error ", "Account already exists with this username", "Okay");
+                    IsBusy = true;
+
+                    UserService userService = new UserService();
+
+                    Result = await userService.RegisterUser(Username, Password);
+
+                    if (Result)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Success", "Account registered", "Okay");
+                    }
+                    else
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Error ", "Account already exists with this username", "Okay");
+                    }
                 }
             }
             catch (Exception exception)
@@ -114,22 +124,29 @@ namespace keyline.ViewModel
             if (IsBusy) { return; }
             try
             {
-                IsBusy = true;
-
-                var userService = new UserService();
-
-                Result = await userService.LoginUser(Username, Password);
-
-                if(Result)
+                bool fieldEmpty = IsFieldEmpty(Username, Password);
+                if (fieldEmpty)
                 {
-                    Preferences.Set("Username", Username);
-                    await Application.Current.MainPage.Navigation.PushModalAsync(new ProductsView());
+                    await Application.Current.MainPage.DisplayAlert("Error", "Username or password cannot be empty", "Try again");
                 }
                 else
                 {
-                    await Application.Current.MainPage.DisplayAlert("Error", "Invalid username or password", "Okay");
-                }
+                    IsBusy = true;
 
+                    UserService userService = new UserService();
+
+                    Result = await userService.LoginUser(Username, Password);
+
+                    if (Result)
+                    {
+                        Preferences.Set("Username", Username);
+                        await Application.Current.MainPage.Navigation.PushModalAsync(new ProductsView());
+                    }
+                    else
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Error", "Invalid username or password", "Okay");
+                    }
+                }
             }
             catch (Exception exception)
             {
@@ -140,6 +157,12 @@ namespace keyline.ViewModel
             {
 
             }
+        }
+
+        private bool IsFieldEmpty(string username, string password)
+        {
+            bool flag = Username == "" || Password == "" || Username == null || Password == null;
+            return flag;
         }
     }
 }
