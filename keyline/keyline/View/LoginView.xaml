@@ -3,10 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="keyline.View.LoginView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid Padding="20" VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- login title -->
+            <StackLayout Grid.Row="0" VerticalOptions="Center">
+                <Image Source="" WidthRequest="100" HeightRequest="300" />
+
+                <Label Text="Login" FontFamily=""
+                       TextColor="Purple" FontSize="36"
+                       HorizontalOptions="Center"/>
+              
+            </StackLayout>
+            
+            <!-- login form -->
+            <StackLayout Grid.Row="1" Spacing="10">
+                <!-- username -->
+                <Entry Placeholder="Username ex. johndoe" Text="{Binding Username}" />
+                
+                <!-- password -->
+                <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" />
+                
+                <!-- login button -->
+                <Button Text="Login" HorizontalOptions="Center" BackgroundColor="Purple"
+                        TextColor="White" WidthRequest="200" HeightRequest="60" CornerRadius="20"/>
+
+                <Label Text="No account? Register below."/>
+                <Button Text="Register" HorizontalOptions="Center" BackgroundColor="DarkOrange"
+                        TextColor="White" WidthRequest="200" HeightRequest="60" CornerRadius="20"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
