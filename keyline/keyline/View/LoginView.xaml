@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:keyline.ViewModel" 
+             x:DataType="vm:LoginViewModel"
              x:Class="keyline.View.LoginView">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid Padding="20" VerticalOptions="Center">
             <Grid.RowDefinitions>
@@ -29,11 +34,16 @@
                 
                 <!-- login button -->
                 <Button Text="Login" HorizontalOptions="Fill" BackgroundColor="#D40778"
-                        TextColor="White" CornerRadius="0"/>
+                        TextColor="White" CornerRadius="0"
+                        Command="{Binding LoginCommand}"/>
 
+                <!-- or label-->
                 <Label Text="No account? Register below."/>
+                
+                <!-- register button -->
                 <Button Text="Register" HorizontalOptions="Fill" BackgroundColor="#709404"
-                        TextColor="White" CornerRadius="0"/>
+                        TextColor="White" CornerRadius="0"
+                        Command="{Binding RegisterCommand}"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
